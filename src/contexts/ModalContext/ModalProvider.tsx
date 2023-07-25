@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useMemo } from "react";
+import React, { FC, ReactElement } from "react";
 
 import { ModalContext, ModalContextState, ModalProps } from "./ModalContext";
 
