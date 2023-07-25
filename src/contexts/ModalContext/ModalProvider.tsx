@@ -11,15 +11,16 @@ const ModalProvider: FC<Props> = ({ children }) => {
 
   async function confirm(message: string): Promise<boolean> {
     return new Promise((resolve) => {
+      const id = Math.random().toString(16).slice(2);
       setModals((prevModals) => [
         ...prevModals,
         {
-          id: prevModals.length,
+          id,
           message,
           type: "confirm",
           onResolve: (value: boolean) => {
             setModals((prevModals) =>
-              prevModals.filter((modal) => modal.id !== prevModals.length - 1)
+              prevModals.filter((modal) => modal.id !== id)
             );
             resolve(value);
           },
@@ -30,15 +31,16 @@ const ModalProvider: FC<Props> = ({ children }) => {
 
   async function alert(message: string): Promise<void> {
     return new Promise((resolve) => {
+      const id = Math.random().toString(16).slice(2);
       setModals((prevModals) => [
         ...prevModals,
         {
-          id: prevModals.length,
+          id,
           message,
           type: "alert",
           onResolve: () => {
             setModals((prevModals) =>
-              prevModals.filter((modal) => modal.id !== prevModals.length - 1)
+              prevModals.filter((modal) => modal.id !== id)
             );
             resolve();
           },

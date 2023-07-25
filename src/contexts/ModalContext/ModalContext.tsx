@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
 export type ModalProps = {
-  id: number;
+  id: string;
   message: string;
   type: "confirm" | "alert";
   onResolve: (value: boolean) => void;
